@@ -1,13 +1,13 @@
 import type { Config } from "tailwindcss"
 
-const config = {
+const config: Config = {
   darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -52,7 +52,6 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -73,9 +72,42 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontFamily: {
+        acme: ['Acme', 'sans-serif'],
+        itim: ['Itim', 'cursive'],
+        sahitya: ['Sahitya', 'serif'],
+        portLligatSlab: ['Port Lligat Slab', 'serif'],
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
+  plugins: [
+    function ({ addUtilities }: { addUtilities: (utilities: any, options?: any) => void }) {
+      const newUtilities = {
+        '.text-shadow': {
+          'text-shadow': '0 2px 4px rgba(0, 0, 0, 0.1)',
+        },
+        '.text-shadow-md': {
+          'text-shadow': '0 3px 6px rgba(0, 0, 0, 0.15)',
+        },
+        '.text-shadow-lg': {
+          'text-shadow': '0 10px 15px rgba(0, 0, 0, 0.2)',
+        },
+        '.text-shadow-xl': {
+          'text-shadow': '0 20px 25px rgba(0, 0, 0, 0.25)',
+        },
+        '.text-shadow-2xl': {
+          'text-shadow': '0 25px 50px rgba(0, 0, 0, 0.3)',
+        },
+        '.text-shadow-5xl': {
+          'font-size': '3rem',
+          'line-height': '1',
+          'text-shadow': '0 20px 25px rgba(0, 0, 0, 0.35)',
+        },
+      };
 
-export default config
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    }
+  ],
+}
+
+export default config;
