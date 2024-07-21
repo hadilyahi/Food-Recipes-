@@ -1,9 +1,11 @@
 "use client";
 import Image from "next/image";
-import NavBar from "./Component/NavBar";
+import NavBar from "./CompoPage1/NavBar";
 import { Helmet } from "react-helmet";
 import { useEffect } from "react";
-import Section from "./Component/Section";
+import Section from "./CompoPage1/Section1";
+import Section2 from "./CompoPage1/Section2";
+import Fotter from "./CompoPage1/Fotter";
 
 export default function Home() {
   useEffect(() => {
@@ -17,8 +19,10 @@ export default function Home() {
         <meta property="og:image" content="/RF.svg" />
       </Helmet>
       <div className="flex flex-col ">
-        <NavBar />
+        <NavBar  />
         <Section/>
+        <Section2/>
+        <Fotter/>
       </div>
     </>
   );
