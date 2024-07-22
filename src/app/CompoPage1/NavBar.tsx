@@ -53,6 +53,7 @@ const NavBar = () => {
           />
           <MagnifyingGlassIcon className="w-6 h-6 absolute left-2 text-gray-500" />
         </div>
+        
       </div>
     </>
   );

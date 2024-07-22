@@ -21,6 +21,7 @@ export default function Home() {
       <div className="flex flex-col ">
         <NavBar  />
         <Section/>
+        <hr className="mb-8 border-2"/>
         <Section2/>
         <Fotter/>
       </div>
