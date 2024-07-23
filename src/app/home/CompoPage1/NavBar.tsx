@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 import React from "react";
+import Link from "next/link";
 
 const NavBar = () => {
   return (
@@ -12,9 +13,10 @@ const NavBar = () => {
           <Image src="/RF.svg" alt="شعار" width={50} height={50} />
         </div>
         <div className="flex gap-20 relative">
-          <a href="" className="font-itim text-xl hover:text-red-600">Home</a>
+        <Link href={"/home"}><button className="font-itim text-xl hover:text-red-600">Home</button></Link> 
           <div className="group relative">
-            <a href="" className="font-itim text-xl hover:text-red-600">Recipes</a>
+          <Link href={"/Recipes"}><button className="font-itim text-xl hover:text-red-600">Recipes</button></Link> 
+           
             <div className="absolute left-1/2 w-[407px] h-[212px] transform -translate-x-1/2 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center">
            
               <h3 className="text-lg font-acme mt-4">Choose your category!</h3>
@@ -42,8 +44,9 @@ const NavBar = () => {
               </div>
             </div>
           </div>
-          <a href="" className="font-itim text-xl hover:text-red-600">Review</a>
-          <a href="" className="font-itim text-xl hover:text-red-600">About</a>
+          <Link href={"/Recipes"}><button className="font-itim text-xl hover:text-red-600">Review</button></Link> 
+          
+         <Link href={"/About"}><button className="font-itim text-xl hover:text-red-600">About</button></Link> 
         </div>
         <div className="relative flex items-center">
           <Input
