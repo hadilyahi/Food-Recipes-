@@ -77,6 +77,10 @@ const config: Config = {
         itim: ['Itim', 'cursive'],
         sahitya: ['Sahitya', 'serif'],
         portLligatSlab: ['Port Lligat Slab', 'serif'],
+        arabicTypesetting: ['"Arabic Typesetting"', 'serif'],
+      },
+      boxShadow: {
+        custom: '0 0 8px #FF0000',
       },
     },
   },
