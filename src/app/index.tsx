@@ -8,7 +8,7 @@ const IndexPage = () => {
     router.push('/home');
   }, [router]);
 
-  return null; // يمكنك وضع مؤشر تحميل هنا إذا أردت
+  return null;
 };
 
 export default IndexPage;

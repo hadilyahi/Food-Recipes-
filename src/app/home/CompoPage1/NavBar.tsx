@@ -21,10 +21,15 @@ const NavBar = () => {
            
               <h3 className="text-lg font-acme mt-4">Choose your category!</h3>
               <div className="flex flex-wrap justify-around mt-4 w-full px-4">
+                
                 <div className="w-1/2 flex items-center text-black text-lg font-acme text-center py-2 hover:bg-gray-100">
                   <Image src="/icon.jpg" alt="Main Food" width={24} height={24} className="mr-2" />
-                  <a href="#">Main Food</a>
+                  <Link href={"/MainFood"}><h1>Main Food</h1></Link>
+                  
                 </div>
+               
+                
+                
                 <div className="w-1/2 flex items-center text-black text-lg font-acme text-center py-2 hover:bg-gray-100">
                   <Image src="/icon.jpg" alt="Sweets" width={24} height={24} className="mr-2" />
                   <a href="#">Sweets</a>
