@@ -49,7 +49,9 @@ const NavBar = () => {
                     height={24}
                     className="mr-2"
                   />
-                  <a href="#">Sweets</a>
+                  <Link href={"/Sweets"}>
+                  <h1 >Sweets</h1>
+                  </Link>
                 </div>
                 <div className="w-1/2 flex items-center text-black text-lg font-acme text-center py-2 hover:bg-gray-100">
                   <Image

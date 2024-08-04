@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../component/Card";
 
-const MainFood = () => {
+const Sweets = () => {
   return (
     <div className="flex flex-col items-center justify-center">
 
@@ -9,79 +9,63 @@ const MainFood = () => {
     <div className="p-20  grid grid-cols-3 gap-5">
       <div className="cursor-pointer">
         <Card
-          imageSrc={"/pizza.svg"}
-          title={"Pizza"}
+          imageSrc={"/chocoKek.svg"}
+          title={"Chocolate cake"}
           time={"30min"}
           type={"Bakery"}
-          id={1}
+          id={9}
         />
       </div>
       <div className="cursor-pointer">
         <Card
-          imageSrc={"/kabsa.svg"}
-          title={"kabsa"}
+          imageSrc={"/prawniz.svg"}
+          title={"Chocolate brownies"}
           time={"1h & 30min"}
           type={"Dish"}
-          id={2}
+          id={10}
         />
       </div>
       <div className="cursor-pointer">
         <Card
-          imageSrc={"/fish.svg"}
-          title={"Fish"}
+          imageSrc={"/mahalabiya.svg"}
+          title={"Custard"}
           time={"35min"}
           type={"Meal"}
-          id={3}
+          id={11}
         />
       </div>
+      
       <div className="cursor-pointer">
         <Card
-          imageSrc={"/Shawarma.svg"}
-          title={"shawarma"}
-          time={"30min"}
-          type={"Sandwich"}
-          id={4}
-        />
-      </div>
-      <div className="cursor-pointer">
-        <Card
-          imageSrc={"/Burger.svg"}
-          title={"Burger"}
+          imageSrc={"/cookiz.svg"}
+          title={"Chocolate cookies"}
           time={"45min"}
           type={"Sandwich"}
-          id={5}
+          id={12}
         />
       </div>
       <div className="cursor-pointer">
         <Card
-          imageSrc={"/Sushi.svg"}
-          title={"sushi"}
+          imageSrc={"/icecreem.svg"}
+          title={"Fruit ice cream"}
           time={"1h & 15min"}
           type={"Meal"}
-          id={6}
+          id={13}
         />
       </div>
       <div className="cursor-pointer">
         <Card
-          imageSrc={"/tacos.svg"}
-          title={"tacos"}
+          imageSrc={"/ktayaf.svg"}
+          title={"Qatayef"}
           time={"40min"}
           type={"Sandwich"}
-          id={7}
+          id={14}
         />
       </div>
-      <div className="cursor-pointer">
-        <Card
-          imageSrc={"/robyan.svg"}
-          title={"Robyan"}
-          time={"1h"}
-          type={"Oyster"}
-          id={8}
-        />
-      </div>
+     
     </div>
     </div>
   );
 };
 
-export default MainFood;
+export default Sweets;
