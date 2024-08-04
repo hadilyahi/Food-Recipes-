@@ -61,7 +61,9 @@ const NavBar = () => {
                     height={24}
                     className="mr-2"
                   />
-                  <a href="#">Side Food</a>
+                  <Link href={"/Side"}>
+                  <h1>Side Food</h1>
+                  </Link>
                 </div>
                 <div className="w-1/2 flex items-center text-black text-lg font-acme text-center py-2 hover:bg-gray-100">
                   <Image
@@ -71,7 +73,9 @@ const NavBar = () => {
                     height={24}
                     className="mr-2"
                   />
-                  <a href="#">Drinks</a>
+                  <Link href={"/Drinks"}>
+                  <h1>Drinks</h1>
+                  </Link>
                 </div>
                 <div className="w-1/2 flex items-center text-black text-lg font-acme text-center py-2 hover:bg-gray-100">
                   <Image
