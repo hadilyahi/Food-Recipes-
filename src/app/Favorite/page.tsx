@@ -1,6 +1,7 @@
 "use client";
 import Card from "@/app/component/Card";
 import React, { useEffect, useState } from "react";
+import Empty from "../component/Empty";
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState<any[]>([]);
@@ -32,9 +33,10 @@ const Favorites = () => {
                 type={favorite.type}
               />
             </div>
+
           ))
         ) : (
-          <h1 className="ml-96 text-4xl text-blue-700 font-itim"> No favourites </h1>
+          <Empty/>
         )}
       </div>
     </div>

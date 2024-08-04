@@ -91,7 +91,7 @@ const NavBar = () => {
             </div>
           </div>
 
-          <Link href={"/"}>
+          <Link href={"/Review"}>
             <button className="font-itim text-xl hover:text-red-600">
               Review
             </button>
