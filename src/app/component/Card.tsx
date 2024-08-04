@@ -1,7 +1,6 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 interface CardProps {
   id: number;
@@ -12,9 +11,23 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ id, imageSrc, title, time, type }) => {
-  const [liked, setLiked] = useState(false);
+  const [liked, setLiked] = useState(() => {
+    // التحقق مما إذا كانت الوصفة موجودة بالفعل في المفضلة عند تحميل المكون
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    return favorites.some((favorite: any) => favorite.id === id);
+  });
 
   const handleLike = () => {
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    if (!liked) {
+      // إضافة الوصفة إلى المفضلة
+      const newFavorite = { id, imageSrc, title, time, type };
+      localStorage.setItem('favorites', JSON.stringify([...favorites, newFavorite]));
+    } else {
+      // إزالة الوصفة من المفضلة
+      const updatedFavorites = favorites.filter((favorite: any) => favorite.id !== id);
+      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    }
     setLiked(!liked);
   };
 
@@ -44,11 +57,6 @@ const Card: React.FC<CardProps> = ({ id, imageSrc, title, time, type }) => {
           <Image src='/type.svg' alt='Type' width={25} height={25} />
           <p>{type}</p>
         </div>
-      </div>
-      <div className='flex flex-col items-center justify-center mt-2 w-full'>
-        <Link href={`/MainFood/${id}`}>
-          <button className="p-2 bg-blue-400 w-72 mb-2 text-white rounded">عرض التفاصيل</button>
-        </Link>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ const NavBar = () => {
               Home
             </button>
           </Link>
-          <div className="group relative  z-40">
+          <div className="relative z-40 group">
             <button className="font-itim text-xl hover:text-red-600">
               Recipes
             </button>
@@ -90,6 +90,7 @@ const NavBar = () => {
               </div>
             </div>
           </div>
+
           <Link href={"/"}>
             <button className="font-itim text-xl hover:text-red-600">
               Review
@@ -103,13 +104,14 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="relative flex items-center gap-4">
-          <Link href={""}>
-          
-          <button type="button" className="font-itim text-xl bg-slate-500 rounded-xl p-2 text-white">
-            Favorite food
-          </button>
+          <Link href={"/Favorite"}>
+            <button
+              type="button"
+              className="font-itim text-xl bg-slate-500 rounded-xl p-2 text-white"
+            >
+              Favorite food
+            </button>
           </Link>
-         
         </div>
       </div>
     </>
