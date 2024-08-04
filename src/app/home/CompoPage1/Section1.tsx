@@ -3,34 +3,35 @@ import Image from "next/image";
 
 const Section = () => {
   return (
-    <div className="flex justify-between p-20">
-      <div className="p-20 flex flex-col gap-10" >
+    <div
+      className="flex items-center justify-center p-20"
+      style={{
+        backgroundImage: "url('/bgphoto.svg')",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="p-20 flex flex-col gap-10 bg-black bg-opacity-60 rounded-xl">
         <div className="flex justify-center items-center ">
-          
-          <h1 className="font-portLligatSla flex flex-col gap-4 text-5xl text-shadow-5xl text-center">
+          <h1 className="font-portLligatSla flex flex-col gap-4 text-5xl text-shadow-lg text-center text-white">
             Welcome To <br />
             <span className="text-[#306DC7] font-bold">
               Food <span className="text-[#469753] font-bold">Recipes</span>
             </span>
           </h1>
         </div>
-        <div className="">
-          <p className="font-sahitya text-xl">
-            It is a website that shows you delicious and healthy <br />food recipes.
-            You can search for the recipe you want
+        <div>
+          <p className="font-sahitya text-xl text-white">
+            It is a website that shows you delicious and healthy <br />
+            food recipes. You can search for the recipe you want
           </p>
         </div>
-        <button className="flex justify-start font-acme text-[#006FEE] text-2xl">Try now</button>
+        <button className="flex justify-center font-acme text-[#006FEE] text-2xl  bg-white bg-opacity-80 px-4 py-2 rounded-md">
+          Try now
+        </button>
       </div>
-      <div className="relative group">
-        <Image
-          src="/photo.svg"
-          alt=""
-          width={600}
-          height={600}
-          className="mr-40 transition-transform duration-300 group-hover:rotate-12"
-        />
-      </div>
+      
     </div>
   );
 };
