@@ -1,11 +1,11 @@
 import React from "react";
 import Card from "../component/Card";
 
-const Sweets = () => {
+const Side = () => {
   return (
     <div className="flex flex-col items-center justify-center">
 
-    <h1 className="font-itim text-5xl mt-8">Main Food</h1>
+    <h1 className="font-itim text-5xl mt-8">Side Food</h1>
     <div className="p-20  grid grid-cols-3 gap-5">
       <div className="cursor-pointer">
         <Card
@@ -68,4 +68,4 @@ const Sweets = () => {
   );
 };
 
-export default Sweets;
+export default Side;

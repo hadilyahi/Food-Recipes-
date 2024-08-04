@@ -19,11 +19,9 @@ const NavBar = () => {
             </button>
           </Link>
           <div className="group relative  z-40">
-            
-              <button className="font-itim text-xl hover:text-red-600">
-                Recipes
-              </button>
-           
+            <button className="font-itim text-xl hover:text-red-600">
+              Recipes
+            </button>
 
             <div className="absolute left-1/2 w-[407px] h-[212px] transform -translate-x-1/2 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center">
               <h3 className="text-lg font-acme mt-4">Choose your category!</h3>
@@ -50,7 +48,7 @@ const NavBar = () => {
                     className="mr-2"
                   />
                   <Link href={"/Sweets"}>
-                  <h1 >Sweets</h1>
+                    <h1>Sweets</h1>
                   </Link>
                 </div>
                 <div className="w-1/2 flex items-center text-black text-lg font-acme text-center py-2 hover:bg-gray-100">
@@ -62,7 +60,7 @@ const NavBar = () => {
                     className="mr-2"
                   />
                   <Link href={"/Side"}>
-                  <h1>Side Food</h1>
+                    <h1>Side Food</h1>
                   </Link>
                 </div>
                 <div className="w-1/2 flex items-center text-black text-lg font-acme text-center py-2 hover:bg-gray-100">
@@ -74,7 +72,7 @@ const NavBar = () => {
                     className="mr-2"
                   />
                   <Link href={"/Drinks"}>
-                  <h1>Drinks</h1>
+                    <h1>Drinks</h1>
                   </Link>
                 </div>
                 <div className="w-1/2 flex items-center text-black text-lg font-acme text-center py-2 hover:bg-gray-100">
@@ -85,12 +83,14 @@ const NavBar = () => {
                     height={24}
                     className="mr-2"
                   />
-                  <a href="#">Healthy foods</a>
+                  <Link href={"/Healthy"}>
+                    <h1>Healthy foods</h1>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
-          <Link href={"/Recipes"}>
+          <Link href={"/"}>
             <button className="font-itim text-xl hover:text-red-600">
               Review
             </button>
@@ -102,13 +102,14 @@ const NavBar = () => {
             </button>
           </Link>
         </div>
-        <div className="relative flex items-center">
-          <Input
-            type="search"
-            placeholder="Find a recipe"
-            className="mr-8 border-2 border-black pl-10"
-          />
-          <MagnifyingGlassIcon className="w-6 h-6 absolute left-2 text-gray-500" />
+        <div className="relative flex items-center gap-4">
+          <Link href={""}>
+          
+          <button type="button" className="font-itim text-xl bg-slate-500 rounded-xl p-2 text-white">
+            Favorite food
+          </button>
+          </Link>
+         
         </div>
       </div>
     </>

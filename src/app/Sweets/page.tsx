@@ -5,7 +5,7 @@ const Sweets = () => {
   return (
     <div className="flex flex-col items-center justify-center">
 
-    <h1 className="font-itim text-5xl mt-8">Main Food</h1>
+    <h1 className="font-itim text-5xl mt-8">Sweets</h1>
     <div className="p-20  grid grid-cols-3 gap-5">
       <div className="cursor-pointer">
         <Card
