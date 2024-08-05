@@ -15,7 +15,6 @@ const Card: React.FC<CardProps> = ({ id, imageSrc, title, time, type }) => {
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
-
     const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
     const isLiked = favorites.some((item: any) => item.id === id);
     setLiked(isLiked);
@@ -37,9 +36,9 @@ const Card: React.FC<CardProps> = ({ id, imageSrc, title, time, type }) => {
   };
 
   return (
-    <div className='relative w-96 rounded-2xl bg-slate-100 flex flex-col p-4'>
+    <div className='relative w-full max-w-sm rounded-2xl bg-slate-100 flex flex-col p-4 mx-auto'>
       <div className='w-full flex justify-center'>
-        <Image src={imageSrc} alt={title} width={400} height={200} className='rounded-lg'/>
+        <Image src={imageSrc} alt={title} width={400} height={200} className='rounded-lg object-cover'/>
       </div>
       <div className='absolute top-4 right-4 flex items-center'>
         <button 
@@ -51,21 +50,21 @@ const Card: React.FC<CardProps> = ({ id, imageSrc, title, time, type }) => {
         </button>
       </div>
       <div className='flex justify-start p-4'>
-        <h1 className='text-3xl font-bold'>{title}</h1>
+        <h1 className='text-xl md:text-2xl font-bold'>{title}</h1>
       </div>
-      <div className='flex justify-around w-full'>
-        <div className='flex gap-2 items-center'>
-          <Image src='/clock.svg' alt='Time' width={25} height={25} />
-          <p>{time}</p>
+      <div className='flex flex-col md:flex-row justify-around w-full'>
+        <div className='flex gap-2 items-center mb-2 md:mb-0'>
+          <Image src='/clock.svg' alt='Time' width={20} height={20} />
+          <p className='text-sm md:text-base'>{time}</p>
         </div>
         <div className='flex gap-2 items-center'>
-          <Image src='/type.svg' alt='Type' width={25} height={25} />
-          <p>{type}</p>
+          <Image src='/type.svg' alt='Type' width={20} height={20} />
+          <p className='text-sm md:text-base'>{type}</p>
         </div>
       </div>
       <div className='flex flex-col items-center justify-center mt-2 w-full'>
         <Link href={`/MainFood/${id}`}>
-          <button className="p-2 bg-blue-400 w-72 mb-2 text-white rounded">عرض التفاصيل</button>
+          <button className="p-2 bg-blue-400 w-full max-w-xs text-white rounded">عرض التفاصيل</button>
         </Link>
       </div>
     </div>

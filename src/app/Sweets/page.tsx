@@ -6,7 +6,7 @@ const Sweets = () => {
     <div className="flex flex-col items-center justify-center">
 
     <h1 className="font-itim text-5xl mt-8">Sweets</h1>
-    <div className="p-20  grid grid-cols-3 gap-5">
+    <div className="p-4 sm:p-10 md:p-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
       <div className="cursor-pointer">
         <Card
           imageSrc={"/chocoKek.svg"}

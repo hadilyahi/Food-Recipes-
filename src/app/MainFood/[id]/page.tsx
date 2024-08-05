@@ -3,7 +3,6 @@ import axios from 'axios';
 import RecipeBook from '@/app/component/BookRecipe';
 import Link from 'next/link';
 
-
 interface Recipe {
   id: number;
   title: string;
@@ -31,28 +30,27 @@ const RecipePage = async ({ params }: RecipePageProps) => {
   }
 
   if (!recipe) {
-    return <p>An error occurred while fetching data or the recipe was not found.</p>;
+    return <p className='text-center text-red-500'>An error occurred while fetching data or the recipe was not found.</p>;
   }
 
   return (
-    <div className='p-8'>
+    <div className='p-4 md:p-8'>
       <RecipeBook
         title={recipe.title}
         ingredients={recipe.ingredients}
         instructions={recipe.instructions}
       />
-      <div className='flex items-center justify-center'>
-
-      <div className='flex flex-col gap-4 items-center justify-center'>
-        <h1 className='font-arabicTypesetting font-bold text-4xl'>Do you want to return to the food page?</h1>
-      <Link href={`/MainFood`}>
-
-          <button  className="p-2 bg-blue-500 w-40 mb-2  text-white rounded">Back To </button>
+      <div className='flex flex-col items-center mt-8'>
+        <h1 className='font-arabicTypesetting font-bold text-2xl md:text-4xl mb-4 text-center'>
+          Do you want to return to the food page?
+        </h1>
+        <Link href="/MainFood">
+          <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300">
+            Back To Food Page
+          </button>
         </Link>
       </div>
-      </div>
     </div>
-
   );
 };
 

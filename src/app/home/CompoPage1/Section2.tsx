@@ -1,5 +1,5 @@
-"use client"
-import React, { useState } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const Section2 = () => {
@@ -15,37 +15,77 @@ const Section2 = () => {
     { src: "/image 7.svg", title: "Chocolate cake" },
   ];
 
+  const maxVisibleItems = 3;
+  const maxVisibleItemsMobile = 1;
+  const [visibleItems, setVisibleItems] = useState(maxVisibleItems);
+
+  const maxIndex = Math.ceil(images.length / visibleItems) - 1;
+
   const handleNext = () => {
-    setIndex((prevIndex) => Math.min(prevIndex + 1, images.length - 4));
+    setIndex((prevIndex) => Math.min(prevIndex + 1, maxIndex));
   };
 
   const handlePrev = () => {
     setIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
 
+  useEffect(() => {
+    const updateVisibleItems = () => {
+      setVisibleItems(
+        window.innerWidth < 640 ? maxVisibleItemsMobile : maxVisibleItems
+      );
+    };
+
+    updateVisibleItems();
+    window.addEventListener("resize", updateVisibleItems);
+
+    return () => window.removeEventListener("resize", updateVisibleItems);
+  }, []);
+
   return (
-    <div className="flex flex-col gap-16">
+    <div className="flex flex-col gap-8 sm:gap-16">
       <div className="flex items-center justify-center">
-        <h1 className="font-acme text-5xl">Highlights</h1>
+        <h1 className="font-acme text-3xl sm:text-5xl">Highlights</h1>
       </div>
-      <div className="flex items-center justify-between">
+      <div className="relative flex items-center justify-between overflow-hidden">
         <Image
           src="/Vector 1.svg"
           alt="Previous"
-          width={40}
-          height={40}
-          className="mr-8 cursor-pointer"
-          onClick={handlePrev}
+          width={30}
+          height={30}
+          className={`mr-4 sm:mr-8 cursor-pointer ${
+            index === 0 ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          onClick={index > 0 ? handlePrev : () => {}}
         />
         <div className="relative flex items-center flex-grow overflow-hidden">
           <div
             className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${index * (100 / 4)}%)` }}
+            style={{
+              transform: `translateX(-${index * (100 / visibleItems)}%)`,
+            }}
           >
             {images.map((image, i) => (
-              <div key={i} className="flex-shrink-0 w-[25%] h-[300px] p-4 flex flex-col items-center cursor-pointer">
-                <Image src={image.src} alt={image.title} width={235} height={235} />
-                <p className="mt-4 text-center text-lg font-semibold">{image.title}</p>
+              <div
+                key={i}
+                className={`flex-shrink-0 ${
+                  visibleItems === 1 ? "w-full" : `w-${100 / visibleItems}%`
+                } p-2 sm:p-4 flex flex-col items-center`}
+                style={{
+                  flexBasis: `${100 / visibleItems}%`,
+                  maxWidth: `${100 / visibleItems}%`,
+                }}
+              >
+                <div className="w-full h-full overflow-hidden">
+                  <Image
+                    src={image.src}
+                    alt={image.title}
+                    layout="responsive"
+                    width={visibleItems === 1 ? 100 : 150}
+                    height={visibleItems === 1 ? 100 : 150}
+                    className="object-cover max-w-[200px] sm:max-w-[300px]"
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -53,10 +93,12 @@ const Section2 = () => {
         <Image
           src="/Vector 2.svg"
           alt="Next"
-          width={40}
-          height={40}
-          className="ml-8 cursor-pointer"
-          onClick={handleNext}
+          width={30}
+          height={30}
+          className={`ml-4 sm:ml-8 cursor-pointer ${
+            index === maxIndex ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          onClick={index < maxIndex ? handleNext : () => {}}
         />
       </div>
     </div>
