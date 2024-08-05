@@ -21,7 +21,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="flex justify-between items-center p-4 mx-6 relative w-full max-w-screen-2xl">
+    <div className="flex justify-between items-center p-4 mx-6 relative w-full max-w-screen-xl">
       <div className="flex items-center">
         <Image src="/RF.svg" alt="شعار" width={50} height={50} />
       </div>
