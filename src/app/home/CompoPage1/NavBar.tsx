@@ -111,7 +111,7 @@ const NavBar = () => {
             <button onClick={handleLinkClick} className="font-itim text-lg md:text-xl py-2 hover:text-red-600">About</button>
           </Link>
           <Link href={"/Favorite"}>
-            <button type="button" onClick={handleLinkClick} className="font-itim text-lg md:text-xl bg-slate-500 rounded-xl p-2 text-white mt-4">
+            <button type="button" onClick={handleLinkClick} className="font-itim text-md md:text-xl w-11 bg-slate-500 rounded-xl p-2 text-white mt-4">
               Favorite food
             </button>
           </Link>
