@@ -1,12 +1,15 @@
-"use client";
-import React, { useState } from "react";
+"use client"
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isRecipesMenuOpen, setIsRecipesMenuOpen] = useState(false);
+
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const recipesMenuRef = useRef<HTMLDivElement>(null);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const toggleRecipesMenu = () => setIsRecipesMenuOpen(!isRecipesMenuOpen);
@@ -20,6 +23,30 @@ const NavBar = () => {
     setIsMobileMenuOpen(false);
   };
 
+  // Close recipe menu when clicking outside of it
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (recipesMenuRef.current && !recipesMenuRef.current.contains(event.target as Node)) {
+        setIsRecipesMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Close mobile menu when clicking outside of it
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <div className="flex justify-between items-center p-4 mx-6 relative w-full max-w-screen-xl">
       <div className="flex items-center">
@@ -31,7 +58,7 @@ const NavBar = () => {
           <Link href={"/home"}>
             <button className="font-itim text-lg md:text-xl hover:text-red-600">Home</button>
           </Link>
-          <div className="relative">
+          <div className="relative" ref={recipesMenuRef}>
             <button onClick={toggleRecipesMenu} className="font-itim text-lg md:text-xl">Recipes</button>
             {isRecipesMenuOpen && (
               <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-max grid grid-cols-2 gap-4 p-4 z-40">
@@ -74,7 +101,7 @@ const NavBar = () => {
         </button>
       </div>
 
-      <div className={`fixed inset-0 bg-white transition-transform transform ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"} md:hidden z-50`}>
+      <div className={`fixed inset-0 bg-white transition-transform transform ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"} md:hidden z-50`} ref={mobileMenuRef}>
         <div className="flex flex-col items-center p-4 relative w-full min-w-[300px] max-w-full">
           <button onClick={toggleMobileMenu} className="text-gray-700 absolute top-4 right-4 z-60">
             <XMarkIcon className="h-8 w-8" />
@@ -111,7 +138,7 @@ const NavBar = () => {
             <button onClick={handleLinkClick} className="font-itim text-lg md:text-xl py-2 hover:text-red-600">About</button>
           </Link>
           <Link href={"/Favorite"}>
-            <button type="button" onClick={handleLinkClick} className="font-itim text-md md:text-xl w-11 bg-slate-500 rounded-xl p-2 text-white mt-4">
+            <button type="button" onClick={handleLinkClick} className="font-itim text-md md:text-xl  bg-slate-500 rounded-xl p-2 text-white mt-4">
               Favorite food
             </button>
           </Link>

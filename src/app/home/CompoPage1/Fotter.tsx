@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="w-full bg-[#878787] p-6 flex flex-col md:flex-row justify-between items-center">
+    <div className="w-full bg-[#c8c7c7] p-6 flex flex-col md:flex-row justify-between items-center">
       <div className="flex flex-col gap-2 p-4 text-center md:text-left w-full md:w-auto">
         <h1 className="font-acme text-2xl md:text-3xl">Contact Us</h1>
         <p className="text-sm md:text-base">Email: hadil17@gmail.com</p>
@@ -25,7 +25,7 @@ const Footer = () => {
           </Link>
         </div>
         <div>
-          <Link href={"https://www.linkedin.com/in/hadil-yahi-0487912a6/"} target="_blank">
+          <Link href={"https://www.instagram.com/ha._.ya404/"} target="_blank">
             <Image src="/linkd.svg" alt="LinkedIn" width={25} height={25} />
           </Link>
         </div>
