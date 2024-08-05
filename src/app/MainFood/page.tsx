@@ -36,7 +36,7 @@ const MainFood = () => {
         </div>
         <div className="cursor-pointer">
           <Card
-            imageSrc={"/Shawarma.svg"}
+            imageSrc={"/shawarma.svg"}
             title={"Shawarma"}
             time={"30min"}
             type={"Sandwich"}
@@ -45,7 +45,7 @@ const MainFood = () => {
         </div>
         <div className="cursor-pointer">
           <Card
-            imageSrc={"/Burger.svg"}
+            imageSrc={"/burger.svg"}
             title={"Burger"}
             time={"45min"}
             type={"Sandwich"}
@@ -54,7 +54,7 @@ const MainFood = () => {
         </div>
         <div className="cursor-pointer">
           <Card
-            imageSrc={"/Sushi.svg"}
+            imageSrc={"/sushi.svg"}
             title={"Sushi"}
             time={"1h & 15min"}
             type={"Meal"}
