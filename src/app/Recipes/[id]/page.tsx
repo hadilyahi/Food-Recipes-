@@ -44,9 +44,9 @@ const RecipePage = async ({ params }: RecipePageProps) => {
         <h1 className='font-arabicTypesetting font-bold text-2xl md:text-4xl mb-4 text-center'>
           Do you want to return to the food page?
         </h1>
-        <Link href="/MainFood">
+        <Link href="/home">
           <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300">
-            Back To Food Page
+            Back To Home Page
           </button>
         </Link>
       </div>

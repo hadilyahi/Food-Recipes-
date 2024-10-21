@@ -63,7 +63,7 @@ const Card: React.FC<CardProps> = ({ id, imageSrc, title, time, type }) => {
         </div>
       </div>
       <div className='flex flex-col items-center justify-center mt-2 w-full'>
-        <Link href={`/MainFood/${id}`}>
+        <Link href={`/Recipes/${id}`}>
           <button className="p-2 bg-blue-400 w-full max-w-xs text-white rounded">عرض التفاصيل</button>
         </Link>
       </div>
